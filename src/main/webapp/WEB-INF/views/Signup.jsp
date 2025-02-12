@@ -7,8 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>sign up</h1>
+<form action="saveuser" method="post">
 
-	<h2>Signup</h2>
+       FirstName: <input type="text" name="firstName"/> <br> <br>
+       LastName: <input type="text" name="lastName"/> <br> <br>
+       Email: <input type="text" name="email"/> <br> <br>
+       Contact.no: <input type="text" name="contact.no"/> <br><br>
+       password:<input type="password" name="password"/> <br> <br>
+       Confirm Passowrd: <input type="password" name="confirmpassword"/> <br><br>
+       
+       <input type="submit" value="signup"/>
+       <br><br>
+
+</form>
+
+<a href="login">LOGIN</a>
 
 </body>
 </html>
