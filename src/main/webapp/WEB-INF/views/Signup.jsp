@@ -12,17 +12,19 @@
 
        FirstName: <input type="text" name="firstName"/> <br> <br>
        LastName: <input type="text" name="lastName"/> <br> <br>
+       Gender:Male<input type="radio" name="gender" value="male"/><br><br>
+       		Female<input type="radio" name="gender" value="female" /><br><br>
        Email: <input type="text" name="email"/> <br> <br>
        Contact.no: <input type="text" name="contact.no"/> <br><br>
        password:<input type="password" name="password"/> <br> <br>
-       Confirm Passowrd: <input type="password" name="confirmpassword"/> <br><br>
+       Confirm Password: <input type="password" name="confirmpassword"/> <br><br>
        
        <input type="submit" value="signup"/>
        <br><br>
 
 </form>
 
-<a href="login">LOGIN</a>
+<a href="login">Login</a>
 
 </body>
 </html>

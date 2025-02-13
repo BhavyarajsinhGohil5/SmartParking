@@ -19,6 +19,7 @@ public class UserEntity {
 	private String lastName;
 	private	String email;
 	private	String password;
+	private	String confirmpassword;
 	private	String contactNum;
 	private	String city;
 	private	String gender;
@@ -64,6 +65,18 @@ public class UserEntity {
 		this.password = password;
 	}
 	
+	
+	
+	
+	
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
+	}
+
 	public String getContactNum() {
 		return contactNum;
 	}
