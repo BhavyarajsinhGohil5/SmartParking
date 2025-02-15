@@ -21,6 +21,7 @@ public class UserEntity {
 	private	String password;
 	private	String confirmpassword;
 	private	String contactNum;
+	private String role;
 	private	String city;
 	private	String gender;
 	
@@ -85,6 +86,16 @@ public class UserEntity {
 		this.contactNum = contactNum;
 	}
 	
+	
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public String getCity() {
 		return city;
 	}

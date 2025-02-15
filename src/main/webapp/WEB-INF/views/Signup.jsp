@@ -15,10 +15,11 @@
        Gender:Male<input type="radio" name="gender" value="male"/><br><br>
        		Female<input type="radio" name="gender" value="female" /><br><br>
        Email: <input type="text" name="email"/> <br> <br>
-       Contact.no: <input type="text" name="contact.no"/> <br><br>
+       Contact.no: <input type="tel" name="contactNum" maxlength="10" pattern="[0-9]{10}" required/> <br><br>
        password:<input type="password" name="password"/> <br> <br>
        Confirm Password: <input type="password" name="confirmpassword"/> <br><br>
-       
+       City: <input type="text" name="city"/> <br><br>
+       Role: <input type="text" name="role"/> <br><br>
        <input type="submit" value="signup"/>
        <br><br>
 

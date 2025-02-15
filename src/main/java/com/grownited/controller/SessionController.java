@@ -1,14 +1,19 @@
 package com.grownited.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.UserRepository;
 
 @Controller
 public class SessionController {
 
+	@Autowired
+	UserRepository repoUser; 
+	
 	@GetMapping(value = {"/" , "signup"})
 	public String signup() {
 		return "Signup";
@@ -20,17 +25,32 @@ public class SessionController {
 	}
 	
 	@PostMapping("saveuser")
-	public String saveUser(UserEntity userEntity) {
+	public String saveUser(UserEntity users) {
 		
 		// read
-				System.out.println(userEntity.getFirstName());
-				System.out.println(userEntity.getLastName());
-				System.out.println(userEntity.getGender());
-				System.out.println(userEntity.getEmail());
-				System.out.println(userEntity.getPassword());
-				System.out.println(userEntity.getConfirmpassword());
+				System.out.println(users.getUserId());
+				
+				System.out.println(users.getFirstName());
+				repoUser.save(users);
+				System.out.println(users.getLastName());
+				repoUser.save(users);
+				System.out.println(users.getGender());
+				repoUser.save(users);
+				System.out.println(users.getEmail());
+				repoUser.save(users);
+				System.out.println(users.getPassword());
+				repoUser.save(users);
+				System.out.println(users.getConfirmpassword());
+				repoUser.save(users);
+				System.out.println(users.getContactNum());
+				repoUser.save(users);
+				System.out.println(users.getCity());
+				repoUser.save(users);
+				System.out.println(users.getRole());
+				repoUser.save(users);
+				
 	
-		return "Login";
+		return "Signup";
 	}
 	
 	//open forgetpassword jsp
