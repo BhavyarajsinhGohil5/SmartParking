@@ -4,19 +4,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New User</title>
+<title>Add Vehicle</title>
 </head>
 <body>
-     <h2>New User</h2>
+     <h2>Add Vehicle</h2>
      
-     <form action="saveuser" method="post">
-     Name : <input type="text" name="fullname" /> <br><br>
+     <form action="savevehicle" method="post">
+     <%----- Name : <input type="text" name="fullname" /> <br><br>
      ContactNum: <input type="text" name="contactNum" /> <br><br>
-     DateTime: <input type="text" name="dateTime" /> <br><br>
-     VehicleRegNo: <input type="text" name="vehicleRegNo" /> <br><br>
-     VehicleType: <input type="text" name="vehicleType" /> <br><br>
-     
-     <input type="submit" value="Save User" />
+     DateTime: <input type="text" name="dateTime" /> <br><br> --%>
+     VehicleRegNo: <input type="text" name="vehicleRegNo" id="vehicleRegNo" maxlength="13" placeholder="MH-12-AB-1234" required oninput="formatVehicleReg(this)"/> <br><br>
+     VehicleType:<br><br>
+     4 Wheeler<input type="radio" name="vehicleType" value="4 Wheeler"/><br><br>
+     2 Wheeler<input type="radio" name="vehicleType" value="2 Wheeler" /><br><br>
+     SUV<input type="radio" name="vehicleType" value="SUV" /><br><br>
+     <input type="submit" value="Save Vehicle" />
      </form> 
+     
+     <script>
+function formatVehicleReg(input) {
+    let value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Remove unwanted characters
+    let formattedValue = '';
+
+    if (value.length > 0) formattedValue += value.substring(0, 2); // First 2 letters
+    if (value.length > 2) formattedValue += '-' + value.substring(2, 4); // Next 2 digits
+    if (value.length > 4) formattedValue += '-' + value.substring(4, 6); // Next 2 letters
+    if (value.length > 6) formattedValue += '-' + value.substring(6, 10); // Last 4 digits
+
+    input.value = formattedValue; 
+}
+</script>
 </body>
 </html>

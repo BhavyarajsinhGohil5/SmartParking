@@ -1,7 +1,11 @@
 package com.grownited.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -46,11 +50,17 @@ public class SessionController {
 				repoUser.save(users);
 				System.out.println(users.getCity());
 				repoUser.save(users);
+				
+				users.setRole("USER");
+				users.setCreatedAt(new Date());
+				users.setActive(true);
+				
+				
 				System.out.println(users.getRole());
 				repoUser.save(users);
 				
 	
-		return "Signup";
+		return "redirect:/listuser";
 	}
 	
 	//open forgetpassword jsp
@@ -68,5 +78,18 @@ public class SessionController {
 	@PostMapping("updatepassword")
 	public String updatePassword() {
 		return "Login";
+	}
+	
+	@GetMapping("listuser")
+	public String listUser(Model model) {
+		List<UserEntity> userList = repoUser.findAll();
+		
+		//how to send data from controller to jsp
+		//Model
+		model.addAttribute("userList", userList);
+							//dataName , dataValue
+		
+		
+		return "ListUser";
 	}
 }

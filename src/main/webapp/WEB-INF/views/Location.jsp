@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sign up</h1>
-<form action="saveuser" method="post">
+<h1>Location</h1>
+<form action="savelocation" method="post">
 
-       FirstName: <input type="text" name="firstName"/> <br> <br>
-       LastName: <input type="text" name="lastName"/> <br> <br>
+       Location Name: <input type="text" name="locationName"/> <br> <br>
+      <%---- LastName: <input type="text" name="lastName"/> <br> <br>
        Gender:Male<input type="radio" name="gender" value="male"/><br><br>
        		Female<input type="radio" name="gender" value="female" /><br><br>
        Email: <input type="email" name="email"/> <br> <br>
@@ -21,7 +21,7 @@
        City: <input type="text" name="city"/> <br><br>
        <%----  Role: <input type="text" name="role"/> <br><br> -----%>
        
-       <input type="submit" value="signup"/>
+       <input type="submit" value="location"/>
        <br><br>
 
 </form>

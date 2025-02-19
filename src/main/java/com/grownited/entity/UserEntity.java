@@ -2,6 +2,9 @@ package com.grownited.entity;
 
 
 
+import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +20,8 @@ public class UserEntity {
 	private Integer userId;
 	private String firstName;
 	private String lastName;
+	
+	@Column(unique = true)
 	private	String email;
 	private	String password;
 	private	String confirmpassword;
@@ -24,6 +29,8 @@ public class UserEntity {
 	private String role;
 	private	String city;
 	private	String gender;
+	private Date createdAt;
+	private Boolean active;
 	
 	
 	public Integer getUserId() {
@@ -111,5 +118,27 @@ public class UserEntity {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
+	
+	
+	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	
+	
+	
 	
 }
