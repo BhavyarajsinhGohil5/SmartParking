@@ -10,9 +10,7 @@
      <h2>Add Vehicle</h2>
      
      <form action="savevehicle" method="post">
-     <%----- Name : <input type="text" name="fullname" /> <br><br>
-     ContactNum: <input type="text" name="contactNum" /> <br><br>
-     DateTime: <input type="text" name="dateTime" /> <br><br> --%>
+     
      VehicleRegNo: <input type="text" name="vehicleRegNo" id="vehicleRegNo" maxlength="13" placeholder="MH-12-AB-1234" required oninput="formatVehicleReg(this)"/> <br><br>
      VehicleType:<br><br>
      4 Wheeler<input type="radio" name="vehicleType" value="4 Wheeler"/><br><br>

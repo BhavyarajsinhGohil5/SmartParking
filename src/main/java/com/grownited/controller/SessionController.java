@@ -11,10 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
+import com.grownited.service.MailService;
 
 @Controller
 public class SessionController {
 
+	@Autowired
+	MailService serviceMail;
+	
+	
 	@Autowired
 	UserRepository repoUser; 
 	
@@ -56,9 +61,11 @@ public class SessionController {
 				users.setActive(true);
 				
 				
-				System.out.println(users.getRole());
+				//System.out.println(users.getRole());
 				repoUser.save(users);
 				
+				
+				serviceMail.sendWelcomeMail(users.getEmail(), users.getFirstName());
 	
 		return "redirect:/listuser";
 	}
