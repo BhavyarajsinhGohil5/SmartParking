@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,14 @@
      4 Wheeler<input type="radio" name="vehicleType" value="4 Wheeler"/><br><br>
      2 Wheeler<input type="radio" name="vehicleType" value="2 Wheeler" /><br><br>
      SUV<input type="radio" name="vehicleType" value="SUV" /><br><br>
+    <label for="userId" class="form-label">User:</label><%-----<input type="number" id="userId" name="userId" placeholder="Enter User ID" required> --%>
+     <select name="userId" id="userId" class="form-control" required>
+                                <option value="">Select User</option>
+                                <c:forEach items="${allUser}" var="u">
+                                  <option value="${u.userId}">${u.firstName}</option>
+                                </c:forEach>
+                              </select>
+     
      <input type="submit" value="Save Vehicle" />
      </form> 
      

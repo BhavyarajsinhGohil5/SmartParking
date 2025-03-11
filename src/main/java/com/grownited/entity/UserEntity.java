@@ -31,7 +31,7 @@ public class UserEntity {
 	private	String gender;
 	private Date createdAt;
 	private Boolean active;
-	
+	private String otp;
 	
 	public Integer getUserId() {
 		return userId;
@@ -136,6 +136,14 @@ public class UserEntity {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 	
 	

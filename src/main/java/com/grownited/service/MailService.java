@@ -13,7 +13,7 @@ public class MailService {
 	JavaMailSender mailSender;
 
 	public void sendWelcomeMail(String email , String firstName) {
-		String subject = "Welcome mail";
+		String subject = "Welcome to SmartParking";
 		String body = "Hey " + firstName 
 				+ ", Welcome a board and look forward to enjoy our service with you. If you have any questions, feel free to reach out - we're here to help!";
 		String from = "bhavyarajgohil143@gmail.com";
@@ -21,10 +21,30 @@ public class MailService {
 		SimpleMailMessage message = new SimpleMailMessage();
 		
 		message.setFrom(from);
-		message.setText(email);
+		message.setTo(email);
 		message.setSubject(subject);
 		message.setText(body);
 		
 		 mailSender.send(message);
 	}  
+	
+
+	public void sendOtpForForgetPassword(String email, String firstName,String otp) {
+		String subject = "OTP for Resetpassword";
+		String body = "Hey " + firstName
+				+ ", It seems you have request for forget password, please use below otp for reset password.  If not then simply ignore the message!OTP:"+otp;
+		String from = "bhavyarajgohil143@gmail.com";
+
+		// logic
+		SimpleMailMessage message = new SimpleMailMessage();
+
+		message.setFrom(from);
+		message.setTo(email);
+		message.setSubject(subject);
+		message.setText(body);
+
+		mailSender.send(message);
+
+	}
+	
 }

@@ -3,6 +3,7 @@ package com.grownited.entity;
 
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,12 +18,13 @@ public class ReservationEntity {
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Column(unique = true)
 	 private Long reservationId;  //PK
-	 private Long userId;  //FK
-	 private Long parkingSlotId;  //FK
-	 private Long parkingId;  //FK
+	 private Integer userId;  //FK
+//	 private Integer parkingSlotId;  //FK
+	 private Integer parkingId;  //FK
 	 private LocalDate date;
-	 private Long vehicleId;  //FK
+	 private Integer vehicleId;  //FK
 	 private LocalTime startTime;
 	 private LocalTime endTime;
 	 private String paymentStatus;
@@ -36,22 +38,23 @@ public class ReservationEntity {
 	public void setReservationId(Long reservationId) {
 		this.reservationId = reservationId;
 	}
-	public Long getUserId() {
+
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public Long getParkingSlotId() {
-		return parkingSlotId;
-	}
-	public void setParkingSlotId(Long parkingSlotId) {
-		this.parkingSlotId = parkingSlotId;
-	}
-	public Long getParkingId() {
+//	public Integer getParkingSlotId() {
+//		return parkingSlotId;
+//	}
+//	public void setParkingSlotId(Integer parkingSlotId) {
+//		this.parkingSlotId = parkingSlotId;
+//	}
+	public Integer getParkingId() {
 		return parkingId;
 	}
-	public void setParkingId(Long parkingId) {
+	public void setParkingId(Integer parkingId) {
 		this.parkingId = parkingId;
 	}
 	public LocalDate getDate() {
@@ -60,10 +63,10 @@ public class ReservationEntity {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	public Long getVehicleId() {
+	public Integer getVehicleId() {
 		return vehicleId;
 	}
-	public void setVehicleId(Long vehicleId) {
+	public void setVehicleId(Integer vehicleId) {
 		this.vehicleId = vehicleId;
 	}
 	public LocalTime getStartTime() {

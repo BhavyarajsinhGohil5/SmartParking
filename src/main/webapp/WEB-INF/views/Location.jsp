@@ -10,7 +10,7 @@
 <h1>Location</h1>
 <form action="savelocation" method="post">
 
-       Location Name: <input type="text" name="locationName"/> <br> <br>
+       Location Name: <input type="text" name="locationName" required/> <br> <br>
       <%---- LastName: <input type="text" name="lastName"/> <br> <br>
        Gender:Male<input type="radio" name="gender" value="male"/><br><br>
        		Female<input type="radio" name="gender" value="female" /><br><br>

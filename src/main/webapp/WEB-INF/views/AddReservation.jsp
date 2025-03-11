@@ -21,6 +21,32 @@
         </select><br><br>
      AmountPaid:<input type="number" name="amountPaid" step="0.01" required/><br><br>
      SecurityAmountPaid:<input type="number" name="securityAmountPaid" step="0.01" required/><br><br>
+     
+     <label for="userId" class="form-label">User:</label><%-----<input type="number" id="userId" name="userId" placeholder="Enter User ID" required> --%>
+     <select name="userId" id="userId" class="form-control" required>
+                                <option value="">Select User</option>
+                                <c:forEach items="${allUser}" var="u">
+                                  <option value="${u.userId}">${u.firstName}</option>
+                                </c:forEach>
+                              </select>
+     
+     <label for="vehicleId" class="form-label">Vehicle:</label><%-----<input type="number" id="userId" name="userId" placeholder="Enter User ID" required> --%>
+     <select name="vehicleId" id="vehicleId" class="form-control" required>
+                                <option value="">Select Vehicle</option>
+                                <c:forEach items="${allVehicle}" var="v">
+                                  <option value="${v.vehicleId}">${v.vehicleRegNo}</option>
+                                </c:forEach>
+                              </select>
+     
+      <label for="parkingId" class="form-label">Parking:</label><%-----<input type="number" id="userId" name="userId" placeholder="Enter User ID" required> --%>
+     <select name="parkingId" id="parkingId" class="form-control" required>
+                                <option value="">Select Parking</option>
+                                <c:forEach items="${allParking}" var="p">
+                                  <option value="${p.parkingId}">${p.title}</option>
+                                </c:forEach>
+                              </select>
+     
+     
      <input type="submit" value="Save Reservation" />
      </form> 
      

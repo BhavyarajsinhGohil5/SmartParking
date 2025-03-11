@@ -20,7 +20,9 @@ public class VehicleEntity {
 	
 	@Column(unique = true)
 	private String vehicleRegNo;
-	//private String lastName;
+	
+	
+	private Integer userId;//fk
 	
 	
 	
@@ -46,6 +48,13 @@ public class VehicleEntity {
 		        this.vehicleRegNo = vehicleRegNo;
 		     
 		}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
 //	@Column(unique = true)
 //	private	String email;
 //	private	String password;

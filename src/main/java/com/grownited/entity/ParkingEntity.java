@@ -20,20 +20,20 @@ public class ParkingEntity {
     @Column(unique = true)
     private Integer parkingId;
 
-    @Column(nullable = false)  // Ensures this field is required
+    @Column(unique = true)  // Ensures this field is required
     private String title;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String address;
 
-    private Integer locationId;
-    private Integer ownerId;
+    private Integer locationId;//fk
+    private Integer userId;//fk
     private Integer totalCapacity2wheeler;
     private Integer totalCapacity4wheeler;
-    private Integer hourlyCharge2wheeler;
-    private Integer hourlyCharge4wheeler;
+    private Double hourlyCharge2wheeler;
+    private Double hourlyCharge4wheeler;
 
-    @Column(nullable = false)
+    @Column(unique = true)
     private String parkingType;
 
     private Double latitude;  // Changed from Integer → Double
@@ -65,11 +65,11 @@ public class ParkingEntity {
 	public void setLocationId(Integer locationId) {
 		this.locationId = locationId;
 	}
-	public Integer getOwnerId() {
-		return ownerId;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setOwnerId(Integer ownerId) {
-		this.ownerId = ownerId;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public Integer getTotalCapacity2wheeler() {
 		return totalCapacity2wheeler;
@@ -83,17 +83,20 @@ public class ParkingEntity {
 	public void setTotalCapacity4wheeler(Integer totalCapacity4wheeler) {
 		this.totalCapacity4wheeler = totalCapacity4wheeler;
 	}
-	public Integer getHourlyCharge2wheeler() {
-		return hourlyCharge2wheeler;
+	public Double getHourlyCharge2wheeler() {
+	    return hourlyCharge2wheeler;
 	}
-	public void setHourlyCharge2wheeler(Integer hourlyCharge2wheeler) {
-		this.hourlyCharge2wheeler = hourlyCharge2wheeler;
+
+	public void setHourlyCharge2wheeler(Double hourlyCharge2wheeler) {
+	    this.hourlyCharge2wheeler = hourlyCharge2wheeler;
 	}
-	public Integer getHourlyCharge4wheeler() {
-		return hourlyCharge4wheeler;
+
+	public Double getHourlyCharge4wheeler() {
+	    return hourlyCharge4wheeler;
 	}
-	public void setHourlyCharge4wheeler(Integer hourlyCharge4wheeler) {
-		this.hourlyCharge4wheeler = hourlyCharge4wheeler;
+
+	public void setHourlyCharge4wheeler(Double hourlyCharge4wheeler) {
+	    this.hourlyCharge4wheeler = hourlyCharge4wheeler;
 	}
 	public String getParkingType() {
 		return parkingType;
