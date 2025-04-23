@@ -4,7 +4,7 @@ package com.grownited.entity;
 //
 //import java.util.Date;
 //
-//import jakarta.persistence.Column;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +18,8 @@ public class LocationEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer locationId;
+	
+	@Column(nullable = false)
 	private String locationName;
 	//private String lastName;
 	
@@ -48,6 +50,7 @@ public class LocationEntity {
 	public void setLocationName(String locationName) {
 		this.locationName = locationName;
 	}
+	
 //	
 //	public String getLastName() {
 //		return lastName;

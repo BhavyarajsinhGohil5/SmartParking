@@ -59,32 +59,38 @@
 <table class="table datatable datatable-table table-hover" id="myTable">
                 <thead class="table-dark">
                     <tr>
+                    	<th>User ID</th>
+                    	<th>Profile</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Gender</th>
                         <th>Email</th>
                         <th>Contact No.</th>
                         <th>Password</th>
-                        <th>City</th>
                         <th>Confirm Password</th>
+                        <th>City</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${userList}" var="u">
+                    <c:forEach items="${allUser}" var="u">
                         <tr>
-                            <td>${u.firstName}</td>
-                            <td>${u.lastName}</td>
-                            <td>${u.gender}</td>
-                            <td>${u.email}</td>
-                            <td>${u.contactNum}</td>
-                            <td>${u.password}</td>
-                            <td>${u.city}</td>
-                            <td>${u.confirmpassword}</td>
+                        	<td>${u[0]}</td>
+                        	<td><img src="${u[13]}" height="70px" width="80px"></td>
+                            <td>${u[7]}</td>
+                            <td>${u[9]}</td>
+                            <td>${u[8]}</td>
+                            <td>${u[6]}</td>
+                            <td>${u[4]}</td>
+                            <td>${u[10]}</td>
+                            <td>${u[3]}</td>
+                            <td>${u[2]}</td>
+                            <td>${u[11]}</td>
                             <td> <div class="d-flex gap-1">
-                                <a href="viewuser?userId=${u.userId}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deleteuser?userId=${u.userId}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="edituser?userId=${u.userId}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <a href="viewuser?userId=${u[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="deleteuser?userId=${u[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="edituser?userId=${u[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

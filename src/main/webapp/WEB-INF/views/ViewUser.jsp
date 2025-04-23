@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +9,18 @@
 </head>
 <body>
 <h2>View User</h2>
-FirstName : ${user.firstName }<br>
-LastName : ${user.lastName }<br>
-Gender : ${user.gender }<br>
-Email : ${user.email }<br>
-City : ${user.city }<br>
-Contact.no : ${user.contactNum }<br>
-password : ${user.password }<br>
-Confirm password : ${user.confirmpassword }<br>
-
+<c:forEach items="${user}" var="u">
+User ID : ${u[0]}<br>
+Profile : ${u[13]}
+FirstName : ${u[7]}<br>
+LastName : ${u[9]}<br>
+Gender : ${u[8]}<br>
+Email : ${u[6]}<br>
+City : ${u[2]}<br>
+Contact.no : ${u[4]}<br>
+Password : ${u[10]}<br>
+Confirm password : ${u[3]}<br>
+Role : ${u[11]}
+</c:forEach>
 </body>
 </html>

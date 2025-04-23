@@ -94,26 +94,27 @@
 <table class="table datatable datatable-table table-hover" id="myVehicleTable">
                 <thead class="table-dark">
                     <tr>
-                    	<th>Vehicle ID</th>
-                    	<th>User ID</th>
-                        <th>VehicleRegNo</th>
-						<th>VehicleType</th>
-                        <%----<th>Action</th> --%>
+                        <th>Vehicle Registration No</th>
+						<th>Vehicle Type</th>
+						<th>User ID</th>
+                    	<th>First Name</th>
+						<th>Last Name</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${vehicleList}" var="v">
+                    <c:forEach items="${allVehicle}" var="v">
                         <tr>
-                        	<td>${v.vehicleId}</td>
-                        	<td>${v.userId}</td>
-                            <td>${v.vehicleRegNo}</td> 
-	 						<td>${v.vehicleType}</td>  
-
-                           <%----  <td> <div class="d-flex gap-1">
-                                <a href="viewvehicle?vehicleId=${v.vehicleId}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deletevehicle?vehicleId=${v.vehicleId}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editvehicle?vehicleId=${v.vehicleId}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
-                            </div></td>--%>
+                            <td>${v[1]}</td> 
+	 						<td>${v[2]}</td>
+	 						<td>${v[3]}</td>  
+                        	<td>${v[4]}</td>
+                        	<td>${v[5]}</td>  
+                           <td><div class="d-flex gap-1">
+                                <a href="viewvehicle?vehicleId=${v[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="deletevehicle?vehicleId=${v[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="editvehicle?vehicleId=${v[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                            </div></td>
                         </tr>
                     </c:forEach>
                 </tbody>

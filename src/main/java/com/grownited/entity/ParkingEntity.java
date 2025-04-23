@@ -17,7 +17,6 @@ public class ParkingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
     private Integer parkingId;
 
     @Column(unique = true)  // Ensures this field is required
@@ -26,20 +25,21 @@ public class ParkingEntity {
 //    @Column(nullable = false)
     private String address;
 
-    private Integer locationId;//fk
-    private Integer userId;//fk
+  
+//    private Integer userId;//fk
     private Integer totalCapacity2wheeler;
     private Integer totalCapacity4wheeler;
     private Double hourlyCharge2wheeler;
     private Double hourlyCharge4wheeler;
-
-    @Column(unique = true)
+    private String active;
+    
     private String parkingType;
 
     private Double latitude;  // Changed from Integer → Double
     private Double longitude; // Changed from Integer → Double
     
-    
+    private Integer locationId;//fk
+//    private String locationName;
     
 	public Integer getParkingId() {
 		return parkingId;
@@ -65,12 +65,12 @@ public class ParkingEntity {
 	public void setLocationId(Integer locationId) {
 		this.locationId = locationId;
 	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+//	public Integer getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(Integer userId) {
+//		this.userId = userId;
+//	}
 	public Integer getTotalCapacity2wheeler() {
 		return totalCapacity2wheeler;
 	}
@@ -115,6 +115,18 @@ public class ParkingEntity {
 	}
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+//	public String getLocationName() {
+//		return locationName;
+//	}
+//	public void setLocationName(String locationName) {
+//		this.locationName = locationName;
+//	}
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
     
     

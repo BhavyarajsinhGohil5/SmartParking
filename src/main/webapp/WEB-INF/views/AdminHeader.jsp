@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -23,13 +24,13 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
-
+<!-- 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+          </a>End Notification Icon
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
@@ -95,16 +96,17 @@
               <a href="#">Show all notifications</a>
             </li>
 
-          </ul><!-- End Notification Dropdown Items -->
+          </ul>End Notification Dropdown Items
 
-        </li><!-- End Notification Nav -->
-
+        </li>End Notification Nav
+    -->
+<!-- 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
             <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
+          </a>End Messages Icon
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
@@ -161,52 +163,61 @@
               <a href="#">Show all messages</a>
             </li>
 
-          </ul><!-- End Messages Dropdown Items -->
+          </ul>End Messages Dropdown Items
 
-        </li><!-- End Messages Nav -->
+        </li>End Messages Nav
 
-        <li class="nav-item dropdown pe-3">
+      -->   <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">${user.firstName}</span>
+             <span class="d-none d-md-block dropdown-toggle ps-2">${user.firstName}</span> 
+          <%--  <span class="d-none d-md-block dropdown-toggle ps-2">Parking</span>--%>
+            
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>${user.firstName} ${user.lastName }</h6>
-              <span>${user.role}</span>
+           <%--  <li class="dropdown-header">
+            <h6>Parking Admin</h6>
+              <h6>${user.firstName} ${user.lastName}</h6>
+              <!-- <span>ADMIN</span> -->
+              <c:if test="${user.userId == '40'}">
+                <span>Role: ${user.role}</span>
+              </c:if>
+            </li> --%><li class="dropdown-header">
+              <h6>${user.firstName }&nbsp;${user.lastName}</h6>
+              <span>Role: ${user.role}</span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-
+<!-- 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
-            </li>
-            <li>
+            </li> -->
+         <!--    <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> -->
 
-            <li>
+           <!--  <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                 <i class="bi bi-question-circle"></i>
                 <span>Need Help?</span>
               </a>
-            </li>
+            </li> -->
             <li>
               <hr class="dropdown-divider">
             </li>

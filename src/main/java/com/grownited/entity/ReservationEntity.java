@@ -19,55 +19,38 @@ public class ReservationEntity {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(unique = true)
-	 private Long reservationId;  //PK
-	 private Integer userId;  //FK
+	 private Integer reservationId;  //PK
 //	 private Integer parkingSlotId;  //FK
-	 private Integer parkingId;  //FK
 	 private LocalDate date;
-	 private Integer vehicleId;  //FK
 	 private LocalTime startTime;
 	 private LocalTime endTime;
 	 private String paymentStatus;
 	 private Double amountPaid;
 	 private Double securityAmountPaid;
 	 
+	 private Integer userId;  //FK
+	 private Integer parkingId;  //FK
+	 private Integer vehicleId;  //FK
 	 
-	public Long getReservationId() {
+	
+	public Integer getReservationId() {
 		return reservationId;
 	}
-	public void setReservationId(Long reservationId) {
+	public void setReservationId(Integer reservationId) {
 		this.reservationId = reservationId;
 	}
 
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
 //	public Integer getParkingSlotId() {
 //		return parkingSlotId;
 //	}
 //	public void setParkingSlotId(Integer parkingSlotId) {
 //		this.parkingSlotId = parkingSlotId;
 //	}
-	public Integer getParkingId() {
-		return parkingId;
-	}
-	public void setParkingId(Integer parkingId) {
-		this.parkingId = parkingId;
-	}
 	public LocalDate getDate() {
 		return date;
 	}
 	public void setDate(LocalDate date) {
 		this.date = date;
-	}
-	public Integer getVehicleId() {
-		return vehicleId;
-	}
-	public void setVehicleId(Integer vehicleId) {
-		this.vehicleId = vehicleId;
 	}
 	public LocalTime getStartTime() {
 		return startTime;
@@ -100,7 +83,25 @@ public class ReservationEntity {
 		this.securityAmountPaid = securityAmountPaid;
 	}   
 		
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	 
+	public Integer getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
+	}
 	 
-	 
+	public Integer getParkingId() {
+		return parkingId;
+	}
+	public void setParkingId(Integer parkingId) {
+		this.parkingId = parkingId;
+	}
+	
 }

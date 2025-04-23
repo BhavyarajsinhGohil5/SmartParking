@@ -138,7 +138,7 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-      <div class="row" style="min-height: 500px";>
+      <div class="row" style="min-height: 500px">
 
         <!-- Left side columns -->
         <div class="col-lg-12">
@@ -164,40 +164,41 @@
 <table class="table datatable datatable-table table-hover" id="myParkingTable">
                 <thead class="table-dark">
                     <tr>
+                    	<th>Parking ID</th>
                     	<th>Title</th>
                         <th>Address</th>
+                        <th>Location Name</th>
+                        <th>Owner ID</th>
                         <th>Total Capacity (2W)</th>
                         <th>Total Capacity (4W)</th>
                         <th>Hourly Charge (2W)</th>
                         <th>Hourly Charge (4W)</th>
                         <th>Parking Type</th>
                         <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Location Name</th>
-                        <th>Owner ID</th>
-                        <%----<th>Action</th> --%>
+                        <th>Longitude</th>           
+                      	<th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${parkingList}" var="p">
+                    <c:forEach items="${allParking}" var="p">
                         <tr>   
-	 						<td>${p.title}</td>
-                            <td>${p.address}</td>
-                            <td>${p.totalCapacity2wheeler}</td>
-                            <td>${p.totalCapacity4wheeler}</td>
-                            <td>${p.hourlyCharge2wheeler}</td>
-                            <td>${p.hourlyCharge4wheeler}</td>
-                            <td>${p.parkingType}</td>
-                            <td>${p.latitude}</td>
-                            <td>${p.longitude}</td>
-                            <td>${p.locationName}</td>
-	 						<td>${p.userId}</td>
-
-                           <%----  <td> <div class="d-flex gap-1">
-                                <a href="viewparking?parkingId=${p.parkingId}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deleteparking?parkingId=${p.parkingId}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editparking?parkingId=${p.parkingId}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
-                            </div></td>--%>
+                        	<td>${p[0]}</td>
+	 						<td>${p[1]}</td>
+                            <td>${p[2]}</td>
+                            <td>${p[3]}</td>
+                            <td>${p[4]}</td>
+                            <td>${p[5]}</td>
+                            <td>${p[6]}</td>
+                            <td>${p[7]}</td>
+                            <td>${p[8]}</td>
+                            <td>${p[9]}</td>
+                            <td>${p[10]}</td>
+                            <td>${p[11]}</td>                 
+                            <td> <div class="d-flex gap-1">
+                                <a href="viewparking?parkingId=${p[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="deleteparking?parkingId=${p[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="editparking?parkingId=${p[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                            </div></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -246,10 +247,3 @@
   
 </body>
 </html>
-
-
-
-
-
-
-

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +13,15 @@
      <form action="savereservation" method="post">
      
      Date: <input type="date" name="date" required/><br><br>
-     StartTime: <input type="time" name="startTime" required/><br>
-     EndTime: <input type="time" name="endTime" required/><br>
-     PaymentStatus:<select name="paymentStatus">
+     Start Time: <input type="time" name="startTime" required/><br>
+     End Time: <input type="time" name="endTime" required/><br>
+     Payment Status:<select name="paymentStatus">
             <option value="Completed">Completed</option>
             <option value="Pending">Pending</option>
             <option value="Failed">Failed</option>
         </select><br><br>
-     AmountPaid:<input type="number" name="amountPaid" step="0.01" required/><br><br>
-     SecurityAmountPaid:<input type="number" name="securityAmountPaid" step="0.01" required/><br><br>
+     Amount Paid:<input type="number" name="amountPaid" step="0.01" required/><br><br>
+     Security Amount Paid:<input type="number" name="securityAmountPaid" step="0.01" required/><br><br>
      
      <label for="userId" class="form-label">User:</label><%-----<input type="number" id="userId" name="userId" placeholder="Enter User ID" required> --%>
      <select name="userId" id="userId" class="form-control" required>
@@ -42,7 +43,7 @@
      <select name="parkingId" id="parkingId" class="form-control" required>
                                 <option value="">Select Parking</option>
                                 <c:forEach items="${allParking}" var="p">
-                                  <option value="${p.parkingId}">${p.title}</option>
+                                  <option value="${p.parkingId}">${p.address}</option>
                                 </c:forEach>
                               </select>
      

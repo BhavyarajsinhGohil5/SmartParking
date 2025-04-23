@@ -46,5 +46,25 @@ public class MailService {
 		mailSender.send(message);
 
 	}
+	 public boolean sendContactMail(String email, String message) {
+		 try {
+		        SimpleMailMessage mailMessage = new SimpleMailMessage();
+		        mailMessage.setTo("parkingadmin@yopmail.com"); // Replace with your actual email
+		        mailMessage.setSubject("New Inquiry from Smart Parking Contact Form");
+
+		        String mailBody = "You have received a new message from the Smart Parking website contact form.\n\n"
+		                        + "Sender Email: " + email + "\n"
+		                        + "Message:\n"
+		                        + message + "\n\n"
+		                        + "Please respond to the sender as soon as possible.";
+
+		        mailMessage.setText(mailBody);
+		        mailSender.send(mailMessage);
+		        return true;
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        return false;
+		    }
 	
+}
 }

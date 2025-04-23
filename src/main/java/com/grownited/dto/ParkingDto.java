@@ -23,7 +23,7 @@ public class ParkingDto {
     
     
     
-	public ParkingDto(Integer parkingId, String title, Integer locationId, Integer ownerId,
+	public ParkingDto(Integer parkingId, String title, Integer locationId,String locationName, Integer ownerId, 
 			Integer totalCapacity2wheeler, Integer totalCapacity4wheeler, Double hourlyCharge2wheeler,
 			Double hourlyCharge4wheeler, String parkingType, Double latitude, Double longitude) {
 		super();
