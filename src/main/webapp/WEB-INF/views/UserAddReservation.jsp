@@ -335,7 +335,12 @@
      <div class="container mt-5 mb-5 p-t-140">
     <div class="card shadow p-4">
         <h2 class="mb-4 text-center">Fill Reservation Details</h2>
-
+    <!-- Error message display -->
+    <c:if test="${not empty error}">
+        <div class="alert alert-danger">
+            ${error}
+        </div>
+    </c:if>
         <form action="saveuserreservation" method="post">
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -376,13 +381,22 @@
             </div>
 
             <div class="row mb-3">
+                <!-- <div class="col-md-4">
+                    <label for="amountPaid" class="form-label">Estimated Amount</label>
+                    <input type="number" id="estimatedAmountDisplay" name="estimatedAmountDisplay" class="form-control" step="0.01"  required readonly/>
+                    <input type="hidden" name="amountPaid" id="amountPaid" /> changed
+                </div> -->
+                
                 <div class="col-md-4">
                     <label for="amountPaid" class="form-label">Estimated Amount</label>
-                    <input type="number" id="amountPaid" name="amountPaid" class="form-control" step="0.01" required/>
+                    <input type="number" id="estimatedAmountDisplay" name="estimatedAmountDisplay"  class="form-control" step="0.01"  required readonly/>
+                    <%-- <input type="number" name="amountPaid" id="amountPaid" value="${amountPaid}"/> --%> 
                 </div>
+                
+                
                 <div class="col-md-4">
                     <label for="securityAmountPaid" class="form-label">Security Amount Paid</label>
-                    <input type="number" id="securityAmountPaid" name="securityAmountPaid" class="form-control" step="0.01" required/>
+                    <input type="number" id="securityAmountDisplay" name="securityAmountPaid" class="form-control"  value="${SecurityAmount}" step="0.01" required readonly/>
                 </div>
                 <div class="col-md-4">
                     <label for="paymentStatus" class="form-label">Payment Status</label>
@@ -567,8 +581,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     var parkingCharges = {
         <c:forEach var="p" items="${allParking}" varStatus="loop">
             "${p.parkingId}": {
-                "2Wheeler": ${p.hourlyCharge2wheeler},
-                "4Wheeler": ${p.hourlyCharge4wheeler},
+                "2 Wheeler": ${p.hourlyCharge2wheeler},
+                "4 Wheeler": ${p.hourlyCharge4wheeler},
                 "SUV": ${p.hourlyCharge4wheeler}
             }<c:if test="${!loop.last}">,</c:if>
         </c:forEach>
@@ -601,9 +615,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 if (hours < 0) hours += 24; // handle overnight reservations
 
                 const total = rate * hours;
-                document.getElementsByName("amountPaid")[0].value = total.toFixed(2);
+                let security = 0;
+                if (vehicleType === "2 Wheeler") security = 5;
+                else if (vehicleType === "4 Wheeler" || vehicleType === "SUV") security = 10;
+                
+                
+                document.getElementById("estimatedAmountDisplay").value = total.toFixed(2); //changed
+                document.getElementsById("amountPaid")[0].value = total.toFixed(2);
+                document.getElementById("securityAmountDisplay").value = security.toFixed(2);
             } else {
-                document.getElementsByName("amountPaid")[0].value = '';
+                document.getElementById("estimatedAmountDisplay").value = ''; //changed
+                document.getElementsById("amountPaid")[0].value = '';
+                document.getElementById("securityAmountDisplay").value = '';
             }
         }
     }
@@ -616,7 +639,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </script>
     <!-- JS for Dynamic Calculation -->
        <!-- JavaScript to calculate estimated amount -->
-   <!--  <script>
+<!--      <script>
         function calculateEstimate() {
             const start = document.querySelector('[name="startTime"]').value;
             const end = document.querySelector('[name="endTime"]').value;

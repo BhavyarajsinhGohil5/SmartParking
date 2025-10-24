@@ -157,7 +157,7 @@ SecurityAmountPaid :  ${r.securityAmountPaid }<br>
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
+							<li >
 								<a href="home">Home</a>
 							</li>
 
@@ -173,7 +173,7 @@ SecurityAmountPaid :  ${r.securityAmountPaid }<br>
 								<a href="#profile">Profile</a>
 							</li>
 							
-							<li>
+							<li class="active-menu">
 								<a href="mybookings">My Bookings</a>
 							</li>
 							

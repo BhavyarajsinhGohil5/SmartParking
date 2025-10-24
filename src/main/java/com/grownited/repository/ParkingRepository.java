@@ -15,11 +15,11 @@ import com.grownited.entity.ParkingEntity;
 public interface ParkingRepository extends JpaRepository<ParkingEntity, Integer> {
 //	Optional<ParkingEntity> findByParkingId(Integer parkingId);
 
-	@Query(value ="select p.parking_id, p.title, p.address, l.location_name, p.owner_id, p.total_capacity2wheeler, p.total_capacity4wheeler, p.hourly_charge2wheeler, p.hourly_charge4wheeler, p.parking_type, p.latitude, p.longitude from location l, parking p where p.location_id = l.location_id",nativeQuery = true)
+	@Query(value ="select p.parking_id, p.title, p.address, l.location_name, p.owner, p.total_capacity2wheeler, p.total_capacity4wheeler, p.hourly_charge2wheeler, p.hourly_charge4wheeler, p.parking_type, p.latitude, p.longitude, p.available_space2w, p.available_space4w from location l, parking p where p.location_id = l.location_id",nativeQuery = true)
 //	List<ParkingDto> getAll();
 	List<Object[]> getAll();
 	
-	@Query(value = "select p.parking_id, p.title, p.address, l.location_name, p.owner_id, p.total_capacity2wheeler, p.total_capacity4wheeler, p.hourly_charge2wheeler, p.hourly_charge4wheeler, p.parking_type, p.latitude, p.longitude from location l, parking p where p.location_id = l.location_id and p.parking_id = :parkingId", nativeQuery = true)
+	@Query(value = "select p.parking_id, p.title, p.address, l.location_name, p.owner, p.total_capacity2wheeler, p.total_capacity4wheeler, p.hourly_charge2wheeler, p.hourly_charge4wheeler, p.parking_type, p.latitude, p.longitude, p.available_space2w, p.available_space4w from location l, parking p where p.location_id = l.location_id and p.parking_id = :parkingId", nativeQuery = true)
 	List<Object[]> getByParkingId(Integer parkingId);
 	
 	List<ParkingEntity> findByActive(String active);

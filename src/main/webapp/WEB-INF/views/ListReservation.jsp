@@ -152,9 +152,9 @@
             				<td>${r[13]}</td> <%--- Latitude--%>
             				<td>${r[14]}</td> <%--- Longitude--%>
                         	<td> <div class="d-flex gap-1">
-                                <a href="viewreservation?reservationId=${r[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deletereservation?reservationId=${r[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editreservation?reservationId=${r[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <a href="adminviewreservation?reservationId=${r[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="admindeletereservation?reservationId=${r[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="admineditreservation?reservationId=${r[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

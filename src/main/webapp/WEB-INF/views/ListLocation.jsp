@@ -120,9 +120,9 @@
                         	<td>${l[0]}</td>
            					<td>${l[1]}</td>    
                             <td> <div class="d-flex gap-1">
-                                <a href="viewlocation?locationId=${l[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a>
-                                <a href="deletelocation?locationId=${l[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editlocation?locationId=${l[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <%-- <a href="adminviewlocation?locationId=${l[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> --%>
+                                <a href="admindeletelocation?locationId=${l[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="admineditlocation?locationId=${l[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

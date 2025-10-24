@@ -39,8 +39,11 @@ public class ParkingEntity {
     private Double longitude; // Changed from Integer → Double
     
     private Integer locationId;//fk
-//    private String locationName;
+    private String owner;
     
+    private Integer availableSpace2W;
+    private Integer availableSpace4W;
+
 	public Integer getParkingId() {
 		return parkingId;
 	}
@@ -116,17 +119,29 @@ public class ParkingEntity {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-//	public String getLocationName() {
-//		return locationName;
-//	}
-//	public void setLocationName(String locationName) {
-//		this.locationName = locationName;
-//	}
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
 	public String getActive() {
 		return active;
 	}
 	public void setActive(String active) {
 		this.active = active;
+	}
+	public Integer getAvailableSpace2W() {
+		return availableSpace2W;
+	}
+	public void setAvailableSpace2W(Integer availableSpace2W) {
+		this.availableSpace2W = availableSpace2W;
+	}
+	public Integer getAvailableSpace4W() {
+		return availableSpace4W;
+	}
+	public void setAvailableSpace4W(Integer availableSpace4W) {
+		this.availableSpace4W = availableSpace4W;
 	}
     
     

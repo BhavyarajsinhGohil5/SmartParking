@@ -111,9 +111,9 @@
                         	<td>${v[4]}</td>
                         	<td>${v[5]}</td>  
                            <td><div class="d-flex gap-1">
-                                <a href="viewvehicle?vehicleId=${v[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deletevehicle?vehicleId=${v[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editvehicle?vehicleId=${v[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <a href="adminviewvehicle?vehicleId=${v[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="admindeletevehicle?vehicleId=${v[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="admineditvehicle?vehicleId=${v[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

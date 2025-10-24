@@ -42,6 +42,11 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
 
 //	 @Query(value = "SELECT DISTINCT u.* FROM reservation r JOIN user u ON r.user_id = u.user_id", nativeQuery = true)
 //	 List<UserEntity> findAllUser();
+	 
+	 
+	 @Query(value = "SELECT COUNT(*) FROM reservation WHERE QUARTER(date) = :quarter AND YEAR(date) = :year", nativeQuery = true)
+	 Integer countThisQuarterReservations(@org.springframework.data.repository.query.Param("quarter") Integer quarter, @org.springframework.data.repository.query.Param("year") Integer year);
+
 }
 
 

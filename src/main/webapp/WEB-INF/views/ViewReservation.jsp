@@ -29,15 +29,55 @@ Longitude : ${parking.longitude }<br>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>View Reservation</title>
-</head>
+<jsp:include page="AdminCss.jsp"></jsp:include>
 
+
+  </head>
 <body>
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	
+	<jsp:include page="AdminSidebar.jsp"></jsp:include>
+	
+	
+	<main id="main" class="main">
 
-	<table border="1">
+    <div class="pagetitle">
+      <h1>View Reservation Details</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+          <li class="breadcrumb-item">List Reservation</li>
+          <li class="breadcrumb-item active">View Reservation</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row" style="min-height: 500px">
+
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+          <div class="row">
+
+            <!-- Sales Card -->
+            
+            <!-- Revenue Card -->
+            <!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+           <!-- End Customers Card -->
+
+            <!-- Reports -->
+            <div class="col-12">
+              <div class="card">
+ <div class="card-body">
+  <h5 class="card-title">Reservation <span>Information</span></h5>
+<%-- 	<table border="1">
 		<tr>
 
-			<%---- <th>ParkingCode</th>--%>
+			-- <th>ParkingCode</th>
 			<th>Reservation ID</th>
 			<th>User ID</th>
         	<th>Parking ID</th>
@@ -64,33 +104,162 @@ Longitude : ${parking.longitude }<br>
 	 						<td>${r[8]}</td>
                             <td>${r[4]}</td>
                             <td>${r[9]}</td>
-                            <td>${r[2]}</td>
-                            <td>${r[7]}</td>
-                            <td>${r[3]}</td>
-                            <%-- <td>${p[7]}</td> --%>
-                            <td>${r[5]}</td>
-                            <td>${r[1]}</td>
-                            <td>${r[6]}</td>
-                            <td>${r[17]}</td>
-                            <td>${r[18]}</td>
-                            <td>${r[10]}</td>
-                            <td>${r[11]}</td>
-                            <td>${r[14]}</td>
-                            <td>${r[15]}</td>
-                            <td>${r[12]}</td>
-                            <td>${r[13]}</td>
+                            <td>${r[2]}</td>date
+                            <td>${r[7]}</td>Start time
+                            <td>${r[3]}</td>End time
+                            <td>${p[7]}</td>owner
+                            <td>${r[5]}</td>Payment status
+                            <td>${r[1]}</td>AmountPaid
+                            <td>${r[6]}</td>SecurityAmount
+                            <td>${r[17]}</td>vehicleRegNo
+                            <td>${r[18]}</td>vehicle type
+                            <td>${r[10]}</td>firstname
+                            <td>${r[11]}</td>lastname
+                            <td>${r[14]}</td>lat
+                            <td>${r[15]}</td>long
+                            <td>${r[12]}</td>title
+                            <td>${r[13]}</td>address
 			</tr>
 		</c:forEach>
 
 
-	</table>
-	<hr>
-	<hr>
-	${reservation[0][0]}<br>
-	${reservation[0][1]}<br>
-	
+	</table> --%>
+<c:forEach items="${reservation}" var="r">
+    <div class="card mb-4 p-4 shadow-sm border rounded-3">
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Date</label>
+            <input type="text" class="form-control" value="${r[2]}" readonly>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Start Time</label>
+            <input type="text" class="form-control" value="${r[7]}" readonly>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">End Time</label>
+            <input type="text" class="form-control" value="${r[3]}" readonly>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Owner</label>
+            <input type="text" class="form-control" value="${r[7]}" readonly>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Payment Status</label>
+            <input type="text" class="form-control" value="${r[5]}" readonly>
+          </div>
+        </div>
+        
+         <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Amount Paid</label>
+            <input type="text" class="form-control" value="${r[1]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Security Amount Paid</label>
+            <input type="text" class="form-control" value="${r[6]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">VehicleRegNo</label>
+            <input type="text" class="form-control" value="${r[17]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">VehicleType</label>
+            <input type="text" class="form-control" value="${r[18]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">User Name</label>
+            <input type="text" class="form-control" value="${r[10]} ${r[11]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Latitude</label>
+            <input type="text" class="form-control" value="${r[14]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Longitude</label>
+            <input type="text" class="form-control" value="${r[15]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Parking Spot</label>
+            <input type="text" class="form-control" value="${r[12]}" readonly>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label fw-semibold">Parking Area</label>
+            <input type="text" class="form-control" value="${r[13]}" readonly>
+          </div>
+        </div>
+        </div>
+        </div>
+      </c:forEach>
+	</div>
+    
+              </div>
+            </div><!-- End Reports -->
+          </div>
+        </div><!-- End Left side columns -->
+
+        <!-- Right side columns -->
+        <!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main>  
+  <!-- End #main -->
+  
+  
+  
+  <jsp:include page="AdminFooter.jsp"></jsp:include>
+  
+  
+  <jsp:include page="AdminJs.jsp"></jsp:include>
+  
+  	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+  
+ 
+ 
 
 
-
+  
 </body>
 </html>

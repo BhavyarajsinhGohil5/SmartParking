@@ -41,7 +41,7 @@
               <h5 class="card-title">Edit Parking Details</h5>
     
 
-	<form action="updateparking" method="post">
+	<form action="adminupdateparking" method="post">
 	 <div class="row mb-3">
                   <label for="title" class="col-sm-3 col-form-label" >Title</label>
                   <div class="col-sm-9">
@@ -182,7 +182,12 @@
     </div>
 </div>
 		
-		
+		<div class="row mb-3">
+                  <label for="owner" class="col-sm-3 col-form-label" >Owner Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="owner" value="${parking.owner}" required>
+                  </div>
+                </div>
 		
 		<div class="row mb-3">
                   <label class="col-sm-3 col-form-label">Active</label>

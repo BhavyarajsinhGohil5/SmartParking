@@ -169,15 +169,10 @@
                   </div>
                 </div>
 
- <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">Owner</label>
+<div class="row mb-3">
+                  <label for="owner" class="col-sm-3 col-form-label">Owner Name</label>
                   <div class="col-sm-9">
-                    <select class="form-select" aria-label="Default select example" name="userId" id="userId" class="form-control" required>
-                      <option selected="">Select Owner</option>
-                      <c:forEach items="${allUser}" var="u">
-                                  <option value="${u.userId}">${u.firstName}</option>
-                                </c:forEach>
-                    </select>
+                    <input type="text" class="form-control" name="owner" required>
                   </div>
                 </div>
                 

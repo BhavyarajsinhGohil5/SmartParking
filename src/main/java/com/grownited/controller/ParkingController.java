@@ -113,7 +113,6 @@ public class ParkingController {
 //             ParkingEntity.setActive("Inactive");
 //         }
     	 ParkingEntity.setActive(ParkingEntity.getActive().equalsIgnoreCase("Active") ? "Active" : "Inactive");
-    	repoParking.save(ParkingEntity);
 //
 //            //System.out.println("Parking details saved successfully.");
 //        
@@ -123,6 +122,11 @@ public class ParkingController {
 //            return "ErrorPage"; // Handle the error properly
 //       }
 
+    	ParkingEntity.setAvailableSpace2W(ParkingEntity.getTotalCapacity2wheeler());
+    	ParkingEntity.setAvailableSpace4W(ParkingEntity.getTotalCapacity4wheeler());
+
+    	repoParking.save(ParkingEntity);
+    	
         return "redirect:/adminaddparking"; // Return the same page or redirect to a success page
     }
     
@@ -175,6 +179,11 @@ public class ParkingController {
 	
 	@GetMapping("admineditparking")
 	public String editParking(Integer parkingId,Model model) {
+		
+		// select * from location;
+				List<LocationEntity> allLocation = repoLocation.findAll();// all location
+				model.addAttribute("allLocation", allLocation);
+		
 		Optional<ParkingEntity> op = repoParking.findById(parkingId);
 		if (!op.isPresent()) {
 			return "redirect:/adminlistparking";
@@ -189,7 +198,7 @@ public class ParkingController {
 	//save -> entity -> id present -> present in db -> update  
 
 	@PostMapping("adminupdateparking")
-	public String updateParking(ParkingEntity parking) {//pcode vhreg type vid 
+	public String updateParking(ParkingEntity parking, HttpSession session) {//pcode vhreg type vid 
 		
 		System.out.println(parking.getParkingId());//id? db? 
 
@@ -198,7 +207,10 @@ public class ParkingController {
 //    	parking.setLocationId(locationId);
 //		
 //		
-		
+		LocationEntity location = (LocationEntity)session.getAttribute("location");
+    	Integer locationId = parking.getLocationId();
+    	parking.setLocationId(locationId);
+    	
 		Optional<ParkingEntity> op = repoParking.findById(parking.getParkingId());
 		
 		if(op.isPresent())
@@ -214,7 +226,7 @@ public class ParkingController {
 			dbParking.setParkingType(parking.getParkingType());//type 
 			dbParking.setLatitude(parking.getLatitude());//type 
 			dbParking.setLongitude(parking.getLongitude());
-//			dbParking.setActive(parking.getActive());
+			dbParking.setActive(parking.getOwner());
 			
 			dbParking.setLocationId(parking.getLocationId());
 			dbParking.setActive(parking.getActive().equalsIgnoreCase("Active") ? "Active" : "Inactive");

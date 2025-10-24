@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.ui.Model;
 
 import com.grownited.entity.LocationEntity;
@@ -160,8 +161,8 @@ public class HomeController {
 //		repoVehicle.save(vehicle);
 	repoVehicle.save(VehicleEntity);
 		
-	return "UserAddReservation";
-//	return "redirect:/useraddreservation";
+//	return "UserAddReservation";
+	return "redirect:/useraddvehicle";
 //		return "redirect:/useraddvehicle";
 	}
 	
@@ -202,17 +203,41 @@ public class HomeController {
 				    ParkingEntity defaultParking = allParking.get(0);
 				    String vehicleType = vehicle.getVehicleType();
 				    
-				    double defaultHourlyCharge = 0.0;
-				    if ("2Wheeler".equalsIgnoreCase(vehicleType)) {
+				    double defaultHourlyCharge = 20.0;
+				    double SecurityAmount = 0.0;
+				    
+				    if ("2 Wheeler".equalsIgnoreCase(vehicleType)) {
 				        defaultHourlyCharge = defaultParking.getHourlyCharge2wheeler();
-				    } else if ("4Wheeler".equalsIgnoreCase(vehicleType)) {
+				        SecurityAmount = 5.0;
+				    } else if ("4 Wheeler".equalsIgnoreCase(vehicleType)) {
 				        defaultHourlyCharge = defaultParking.getHourlyCharge4wheeler();
+				        SecurityAmount = 10.0;
 				    } else if ("SUV".equalsIgnoreCase(vehicleType)) {
 				        defaultHourlyCharge = defaultParking.getHourlyCharge4wheeler();
+				        SecurityAmount = 10.0;
 				    }
 				    
 				    model.addAttribute("defaultHourlyCharge", defaultHourlyCharge);
+				    model.addAttribute("SecurityAmount", SecurityAmount);
 	}
+				
+//				double securityAmount = 0.0;
+//				if (!userVehicles.isEmpty()) {
+//				    VehicleEntity vehicle = userVehicles.get(0);
+//				    String vehicleType = vehicle.getVehicleType();
+//
+//				    if ("2 Wheeler".equalsIgnoreCase(vehicleType)) {
+//				        securityAmount = 5.0;
+//				    } else if ("4 Wheeler".equalsIgnoreCase(vehicleType) || "SUV".equalsIgnoreCase(vehicleType)) {
+//				        securityAmount = 10.0;
+//				    }
+//
+//				    model.addAttribute("vehicle", vehicle);
+//				    model.addAttribute("defaultSecurityAmount", securityAmount);
+//				}
+//				
+//				
+				
 				return "UserAddReservation";
 				}
 	
@@ -228,12 +253,14 @@ public class HomeController {
 		
 //		
 		VehicleEntity vehicle =	(VehicleEntity)session.getAttribute("vehicle");
-		Integer vehicleId = ReservationEntity.getVehicleId();
-		ReservationEntity.setVehicleId(vehicleId);
-
 		ParkingEntity parking =	(ParkingEntity)session.getAttribute("parking");
+		
+		Integer vehicleId = ReservationEntity.getVehicleId();
 		Integer parkingId = ReservationEntity.getParkingId();
+
+		ReservationEntity.setVehicleId(vehicleId);
 		ReservationEntity.setParkingId(parkingId);
+
 		
 	    // Fetch vehicle, parking from DB
 	    Optional<VehicleEntity> optionalVehicle = repoVehicle.findById(ReservationEntity.getVehicleId());
@@ -242,6 +269,8 @@ public class HomeController {
 	    if (optionalVehicle.isPresent() && optionalParking.isPresent()) {
 	        VehicleEntity vehicles = optionalVehicle.get();
 	        ParkingEntity parkings = optionalParking.get();
+	        
+//	        String vehicleType = vehicles.getVehicleType(); // This replaces the need for a separate 'vehicleType' parameter
 
 	        // Duration calculation (in hours)
 	        LocalTime start = ReservationEntity.getStartTime();
@@ -252,25 +281,26 @@ public class HomeController {
 	        }
 
 	        // Hourly rate based on vehicle type
-	        double hourlyRate = 0.0;
-	       // double security = 0.0;
+	        double hourlyRate = 20.0;
+	        double security = 0.0;
 	        String type = vehicles.getVehicleType();
 
-	        if ("2Wheeler".equalsIgnoreCase(type)) {
+	        if ("2 Wheeler".equalsIgnoreCase(type)) {
 	            hourlyRate = parkings.getHourlyCharge2wheeler();
-	            //security = 100;
-	        } else if ("4Wheeler".equalsIgnoreCase(type)) {
+	            security = 5;
+	        } else if ("4 Wheeler".equalsIgnoreCase(type) || "SUV".equalsIgnoreCase(type)) {
 	            hourlyRate = parkings.getHourlyCharge4wheeler();
-	           // security = 200;
-	        } else if ("SUV".equalsIgnoreCase(type)) {
-	            hourlyRate = parkings.getHourlyCharge4wheeler();
-	            //security = 200;
-	        }
+	            security = 10;
+	        } 
+//	        else if ("SUV".equalsIgnoreCase(type)) {
+//	            hourlyRate = parkings.getHourlyCharge4wheeler();
+//	            //security = 200;
+//	        }
 
 	        // Set calculated values
 	        double totalAmount = hourlyRate * duration;
 	        ReservationEntity.setAmountPaid(totalAmount);
-	       // ReservationEntity.setSecurityAmountPaid(security);
+	        ReservationEntity.setSecurityAmountPaid(security);
 	    } else {
 	        // Optional: handle missing vehicle or parking
 	        System.out.println("Vehicle or Parking not found!");
@@ -308,9 +338,26 @@ public class HomeController {
 
 		//System.out.println("Payment Status: " + reservation.getPaymentStatus());
 		//System.out.println("Amount Paid: " + reservation.getAmountPaid());
-		
+//		   if ("2W".equalsIgnoreCase(vehicleType)) {
+//		        if (parking.getAvailableSpace2W() == null || parking.getAvailableSpace2W() <= 0) {
+//		            redirectAttributes.addFlashAttribute("error", "No available space for 2-Wheeler.");
+//		            return "redirect:/user-add-reservation";
+//		        }
+//		    } else if ("4W".equalsIgnoreCase(vehicleType)) {
+//		        if (parking.getAvailableSpace4W() == null || parking.getAvailableSpace4W() <= 0) {
+//		            redirectAttributes.addFlashAttribute("error", "No available space for 4-Wheeler.");
+//		            return "redirect:/user-add-reservation";
+//		        }
+//		    }
 		repoReservation.save(ReservationEntity);
-		
+//	    // Update parking available spaces
+//	    if ("2 Wheeler".equals(vehicleType)) {
+//	        parking.setAvailableSpace2W(parking.getAvailableSpace2W() - 1);
+//	    } else {
+//	        parking.setAvailableSpace4W(parking.getAvailableSpace4W() - 1);
+//	    }
+//	    repoParking.save(parking);
+
 //		return "UserAddReservation";
 		return "redirect:/useraddreservation";
 	}
@@ -478,9 +525,29 @@ public class HomeController {
             return "redirect:/checkout?reservationId=" + reservationId;
         }
 
+
+        
+        
+        
+        // Available Spaces code
+        
+        
+        ParkingEntity parking = repoParking.findById(reservation.getParkingId()).get();
+//        ParkingEntity parking = reservation.getParking();
+        if (parking != null) {
+            if (parking.getAvailableSpace2W() != null && parking.getAvailableSpace2W() > 0) {
+                parking.setAvailableSpace2W(parking.getAvailableSpace2W() - 1);
+            } else if (parking.getAvailableSpace4W() != null && parking.getAvailableSpace4W() > 0) {
+                parking.setAvailableSpace4W(parking.getAvailableSpace4W() - 1);
+            }
+            repoParking.save(parking);
+        }
+        
+        
         reservation.setPaymentStatus("Completed");
         repoReservation.save(reservation);
-
+        
+        
 		return "redirect:/home";
 	}
 	

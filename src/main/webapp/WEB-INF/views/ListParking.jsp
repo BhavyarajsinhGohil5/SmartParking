@@ -168,14 +168,16 @@
                     	<th>Title</th>
                         <th>Address</th>
                         <th>Location Name</th>
-                        <th>Owner ID</th>
+                        <th>Owner Name</th>
                         <th>Total Capacity (2W)</th>
                         <th>Total Capacity (4W)</th>
                         <th>Hourly Charge (2W)</th>
                         <th>Hourly Charge (4W)</th>
                         <th>Parking Type</th>
                         <th>Latitude</th>
-                        <th>Longitude</th>           
+                        <th>Longitude</th>
+                        <th>Available Spot (2W)</th>   
+                        <th>Available Spot (4W)</th>        
                       	<th>Action</th>
                     </tr>
                 </thead>
@@ -186,18 +188,20 @@
 	 						<td>${p[1]}</td>
                             <td>${p[2]}</td>
                             <td>${p[3]}</td>
-                            <td>${p[4]}</td>
+                            <td>${p[4]}</td><%--  --%>
                             <td>${p[5]}</td>
                             <td>${p[6]}</td>
                             <td>${p[7]}</td>
                             <td>${p[8]}</td>
                             <td>${p[9]}</td>
                             <td>${p[10]}</td>
-                            <td>${p[11]}</td>                 
+                            <td>${p[11]}</td> 
+                            <td>${p[12]}</td> <!-- AS2W -->
+                            <td>${p[13]}</td> <!-- AS4W -->                
                             <td> <div class="d-flex gap-1">
-                                <a href="viewparking?parkingId=${p[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deleteparking?parkingId=${p[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="editparking?parkingId=${p[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <a href="adminviewparking?parkingId=${p[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="admindeleteparking?parkingId=${p[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="admineditparking?parkingId=${p[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

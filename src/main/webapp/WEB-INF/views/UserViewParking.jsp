@@ -67,7 +67,7 @@ Longitude : ${parking.longitude }<br>
             <th>Title</th>
             <th>Address</th>
             <th>Location Name</th>
-            <th>Owner ID</th>
+            <th>Owner</th>
             <th>Total Capacity (2W)</th>
             <th>Total Capacity (4W)</th>
             <th>Hourly Charge (2W)</th>
@@ -75,6 +75,8 @@ Longitude : ${parking.longitude }<br>
             <th>Parking Type</th>
             <th>Latitude</th>
             <th>Longitude</th>
+            <th>Available Spot (2W)</th>   
+            <th>Available Spot (4W)</th>
 		</tr>
 		<c:forEach items="${parking}" var="p">
 			<tr>
@@ -90,6 +92,8 @@ Longitude : ${parking.longitude }<br>
                             <td>${p[9]}</td>
                             <td>${p[10]}</td>
                             <td>${p[11]}</td>
+                            <td>${p[12]}</td> <!-- AS2W -->
+                            <td>${p[13]}</td> <!-- AS4W -->
 			</tr>
 		</c:forEach>
 </tbody>

@@ -117,14 +117,14 @@
 
                 
                 <div class="card-body">
-                  <h5 class="card-title">Reservations <span>| This Quarter</span></h5>
+                  <h5 class="card-title">Reservations <span>| This QTR</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="ri-ticket-2-line"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><%-- ${openParking} --%>1</h6>
+                      <h6><%-- ${openParking} --%>${thisQuarterReservationsCount}</h6>
                       <!-- <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span> -->
                     </div>
                   </div>
@@ -191,7 +191,7 @@
         const myBarChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June','July'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','September'],
                 datasets: [{
                     label: 'Reservations Count Month wise',
                     data: [${monthWiseReservations[0]},${monthWiseReservations[1]},${monthWiseReservations[2]},${monthWiseReservations[3]},${monthWiseReservations[4]},${monthWiseReservations[5]},${monthWiseReservations[6]}],

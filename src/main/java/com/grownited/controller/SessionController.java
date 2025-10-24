@@ -247,7 +247,12 @@ public class SessionController {
 	 * return "ViewUser"; }
 	 */
 	@GetMapping("adminviewuser")
-	public String viewUser(Integer userId, Model model) {
+	public String viewUser(@RequestParam(value = "userId", required = false) Integer userId, Model model) {
+		
+		 if (userId == null) {
+		        // Handle missing userId, maybe redirect or show error page
+		        return "redirect:/someErrorPage"; // or handle it nicely
+		    }
 		List<Object[]> op = repoUser.getByUserId(userId);
 		model.addAttribute("user", op);
 		return "ViewUser";

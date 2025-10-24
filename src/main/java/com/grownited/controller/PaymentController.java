@@ -184,11 +184,11 @@ public class PaymentController {
 		return "ViewPayment";
 	}
 	
-//	@GetMapping("deletereservation")
-//	public String deletePayment(Integer paymentId) {
-//		repoPayment.deleteById(paymentId);
-//		return"redirect:/listpayment";
-//	}
+	@GetMapping("admindeletepayment")
+	public String deletePayment(Integer paymentId) {
+		repoPayment.deleteById(paymentId);
+		return"redirect:/listpayment";
+	}
 }
 	
 	

@@ -88,9 +88,9 @@
                             <td>${u[2]}</td>
                             <td>${u[11]}</td>
                             <td> <div class="d-flex gap-1">
-                                <a href="viewuser?userId=${u[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
-                                <a href="deleteuser?userId=${u[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
-                                <a href="edituser?userId=${u[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
+                                <a href="adminviewuser?userId=${u[0]}" class="btn btn-info btn-sm"><i class="ri-eye-line"></i> View</a> 
+                                <a href="admindeleteuser?userId=${u[0]}" class="btn btn-danger btn-sm"><i class="bx bx-trash"></i> Delete</a>
+                                <a href="adminedituser?userId=${u[0]}" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i> Edit</a>
                             </div></td>
                         </tr>
                     </c:forEach>

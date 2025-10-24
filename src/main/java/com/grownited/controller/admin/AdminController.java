@@ -53,6 +53,11 @@ public class AdminController {
 			monthWiseReservations [i-1] = repoReservation.countThisMonthReservations(i);
 		}
     	 
+		int currentMonth = today.getMonthValue();
+		int currentQuarter = (currentMonth - 1) / 3 + 1;
+		int currentYear = today.getYear();
+
+		Integer thisQuarterReservationsCount = repoReservation.countThisQuarterReservations(currentQuarter, currentYear);
     	 
     	 model.addAttribute("totalUsers", totalUsers);
     	 model.addAttribute("totalParking", totalParking);
@@ -60,6 +65,7 @@ public class AdminController {
     	 model.addAttribute("openParking", openParking);
     	 model.addAttribute("currentMonth",LocalDate.now().getMonth().name());
     	 model.addAttribute("monthWiseReservations",monthWiseReservations);
+    	 model.addAttribute("thisQuarterReservationsCount", thisQuarterReservationsCount);
     	 
         return "AdminDashboard";
     }
